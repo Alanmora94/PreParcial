@@ -35,6 +35,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
 import { HomeComponent } from './home/home.component';
+import { EstablecimientoComponent } from './establecimiento/establecimiento.component';
 
 
 
@@ -45,7 +46,7 @@ import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
-  declarations: [MenuComponent, LogUpComponent, LogInComponent, HomeComponent],
+  declarations: [MenuComponent, LogUpComponent, LogInComponent, HomeComponent, EstablecimientoComponent],
   imports: [
     CommonModule,
     PageRoutingModule,

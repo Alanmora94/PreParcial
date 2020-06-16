@@ -8,6 +8,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LogInLComponent} from './Formularios/log-in-l/log-in-l.component'
 import { BotonLogOutComponent } from './Formularios/boton-log-out/boton-log-out.component';
 import { LogUpLComponent } from './Formularios/log-up-l/log-up-l.component';
+import {EstablecimientoLComponent} from '../Componentes/Formularios/establecimiento-l/establecimiento-l.component'
+
 
 import { ComponenteRoutingModule } from './componente-routing.module';
 
@@ -36,8 +38,9 @@ import {TokService} from '../Servicios/tok.service';
 
 
 
+
 @NgModule({
-  declarations: [LogInLComponent, LogUpLComponent, BotonLogOutComponent],
+  declarations: [LogInLComponent, LogUpLComponent, BotonLogOutComponent,EstablecimientoLComponent],
   imports: [
     CommonModule,
     ComponenteRoutingModule,
@@ -66,6 +69,6 @@ import {TokService} from '../Servicios/tok.service';
 
   providers: [SesionService,TokService],
 
-  exports: [LogInLComponent,LogUpLComponent,BotonLogOutComponent]
+  exports: [LogInLComponent,LogUpLComponent,BotonLogOutComponent,EstablecimientoLComponent]
 })
 export class ComponenteModule { }

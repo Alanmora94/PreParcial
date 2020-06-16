@@ -9,6 +9,8 @@ import { LogUpComponent } from './log-up/log-up.component';
 import { LogInComponent } from './log-in/log-in.component';
 import {HomeComponent} from './home/home.component';
 
+import {EstablecimientoComponent} from '../Pages/establecimiento/establecimiento.component';
+
 //**************GUARDS */
 
 import {AutenticacionGuard} from '../Guards/autenticacion.guard';
@@ -23,6 +25,8 @@ const routes: Routes = [
      component: LogInComponent},
      {path: "LogUp",
      component: LogUpComponent},
+     {path: "Establecimiento",
+     component: EstablecimientoComponent},
      {path: "Home",
      component: HomeComponent,
      canActivate: [AutenticacionGuard]}

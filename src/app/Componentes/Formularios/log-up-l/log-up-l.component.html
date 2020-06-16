@@ -1,11 +1,6 @@
 <form [formGroup]="formulario" (submit)="Registrar()">
   <h2>Log Up</h2>
 
-  <!--<mat-error *ngIf="loginInvalid">
-    The username and password were not recognised
-  </mat-error>
-  -->
-
   <mat-form-field class="full-width-input">
     <input matInput placeholder="Email" formControlName="email" required [(ngModel)]="_email">
     <mat-error>

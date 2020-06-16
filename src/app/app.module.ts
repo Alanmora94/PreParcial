@@ -14,6 +14,12 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 
 
+
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+
+
 //**************JWT */
 import { JwtModule } from "@auth0/angular-jwt";
 import { HttpClientModule } from "@angular/common/http";
@@ -34,6 +40,8 @@ export function tokenGetter() {
   imports: [
     BrowserModule,
     HttpClientModule,
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     JwtModule.forRoot({
       config: {
