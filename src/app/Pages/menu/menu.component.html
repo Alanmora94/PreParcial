@@ -1,0 +1,21 @@
+<mat-toolbar color="basic" class="mat-elevation-z8">
+  <span><mat-icon>eco</mat-icon> App Clinica </span>
+
+
+
+  <div class="spacer"></div>
+  <a mat-button color="primary" routerLink="/Home" >Home</a>
+  <a mat-button color="primary"  >Empleados</a>
+  <a mat-button color="primary" routerLink="/LogIn" >LogIn</a>
+  <a mat-button color="primary" routerLink="/LogUp" >LogUp</a>
+  <a mat-button color="primary"  >Turnos</a>
+  <a mat-raised-button color="warn"  (click)="exit()">Log Out</a>
+</mat-toolbar>
+
+
+
+<router-outlet></router-outlet>
+
+
+
+

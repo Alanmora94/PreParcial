@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "Parcial",
+      "public": "dist/Parcial",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
