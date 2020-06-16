@@ -77,7 +77,8 @@ export class TokService {
 
   BorrarToken(){
 
-    localStorage.setItem("token", null);
+
+    localStorage.removeItem("token")
 
   }
 

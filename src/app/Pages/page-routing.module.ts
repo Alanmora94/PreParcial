@@ -11,6 +11,8 @@ import {HomeComponent} from './home/home.component';
 
 //**************GUARDS */
 
+import {AutenticacionGuard} from '../Guards/autenticacion.guard';
+
 //import { AuthGuard } from '../Guards/auth.guard'
 
 const routes: Routes = [
@@ -22,7 +24,8 @@ const routes: Routes = [
      {path: "LogUp",
      component: LogUpComponent},
      {path: "Home",
-     component: HomeComponent}
+     component: HomeComponent,
+     canActivate: [AutenticacionGuard]}
     ]
   }
 

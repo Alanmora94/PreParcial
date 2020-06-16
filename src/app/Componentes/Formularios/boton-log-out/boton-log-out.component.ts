@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SesionService} from '../../../Servicios/sesion.service';
+
 
 @Component({
   selector: 'app-boton-log-out',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BotonLogOutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sesion: SesionService) { }
 
   ngOnInit(): void {
   }
@@ -15,8 +17,8 @@ export class BotonLogOutComponent implements OnInit {
 
   exit(){
 
-    console.log("exit");
-}
+    this.sesion.LogOut();
+  }
 
 
 }

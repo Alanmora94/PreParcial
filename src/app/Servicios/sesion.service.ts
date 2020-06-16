@@ -129,6 +129,29 @@ GuardaruserName(obj: string){
 
 
 
+LogOut(){
+
+  try {
+
+    localStorage.removeItem("UserName")
+
+    this.UserName = '';
+
+    this.token.BorrarToken();
+
+    this.sesion = false;
+
+    this.ruta.navigateByUrl("LogIn");
+
+    //this.notificacion.LogOut(this.GetUsername());
+    //localStorage.removeItem("idDetalle")
+
+  } catch (error) {
+
+    //console.log(error);
+  }
+
+}
 
 
 
