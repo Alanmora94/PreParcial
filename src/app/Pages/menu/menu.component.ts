@@ -14,10 +14,6 @@ export class MenuComponent implements OnInit {
   }
 
 
-  exit(){
-
-      console.log("exit");
-  }
 
 
 

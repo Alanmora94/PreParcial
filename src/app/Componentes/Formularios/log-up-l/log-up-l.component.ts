@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../../Modelos/usuario';
 //import { LoginService } from '../../../servicios/sesion/login.service';
+import {SesionService} from '../../../Servicios/sesion.service';
+
 import { FormControl, FormBuilder ,FormGroup, Validators } from '@angular/forms';
 
 
@@ -23,7 +25,7 @@ export class LogUpLComponent implements OnInit {
   _email:string;
   _pass:string;
 
-  constructor( private frmbuilder: FormBuilder) {
+  constructor(private sesion: SesionService, private frmbuilder: FormBuilder) {
 
     this.formulario = this.frmbuilder.group( {
 
@@ -45,20 +47,10 @@ export class LogUpLComponent implements OnInit {
 
     if(this.formulario.valid){
 
-      //console.log("entra")
-
        this._usuarios = new Usuario(this._email,this._pass,this._nombre);
 
-     /* console.log(this._usuarios.email);
-      console.log(this._usuarios.password);
-      console.log(this._usuarios.nombre);
 
-      console.log(this._email);
-      console.log(this._pass);
-      console.log(this._nombre);
-
-      */
-      //this.sesion.CargarUser(new Usuario(this._email,this._pass,this._nombre));
+      this.sesion.CargarUser(new Usuario(this._email,this._pass,this._nombre));
     }
 
 

@@ -3,6 +3,7 @@ import { Usuario } from '../../../Modelos/usuario';
 //import { LoginService } from '../../../servicios/sesion/login.service';
 import { FormControl, FormBuilder ,FormGroup, Validators } from '@angular/forms';
 
+import {SesionService} from '../../../Servicios/sesion.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class LogInLComponent implements OnInit {
   _email : string;
   _pass : string;
 
-  constructor(  private frmbuilder: FormBuilder) {
+  constructor(private sesion: SesionService , private frmbuilder: FormBuilder) {
 
 
     this.formulario = this.frmbuilder.group( {
@@ -37,7 +38,7 @@ export class LogInLComponent implements OnInit {
 
     if(this.formulario.valid){
 
-     // this.sesion.IniciarSesion(new Usuario(this._email,this._pass));
+     this.sesion.IniciarSesion(new Usuario(this._email,this._pass));
     }
   }
 

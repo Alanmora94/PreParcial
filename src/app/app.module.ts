@@ -40,10 +40,12 @@ export function tokenGetter() {
         tokenGetter: tokenGetter
         }
     }),
+
+    ComponenteModule,
     PageModule,
     BrowserAnimationsModule,
 
-    ComponenteModule,
+
     AppRoutingModule,
   ],
   providers: [],//LoginService,TokenService],

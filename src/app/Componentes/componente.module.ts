@@ -6,7 +6,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 import {LogInLComponent} from './Formularios/log-in-l/log-in-l.component'
-
+import { BotonLogOutComponent } from './Formularios/boton-log-out/boton-log-out.component';
+import { LogUpLComponent } from './Formularios/log-up-l/log-up-l.component';
 
 import { ComponenteRoutingModule } from './componente-routing.module';
 
@@ -24,15 +25,19 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
-import { LogUpLComponent } from './Formularios/log-up-l/log-up-l.component';
+
 
 
 //**************SERVICIOS */
 
+import {SesionService} from '../Servicios/sesion.service';
+import {TokService} from '../Servicios/tok.service';
+
+
 
 
 @NgModule({
-  declarations: [LogInLComponent, LogUpLComponent],
+  declarations: [LogInLComponent, LogUpLComponent, BotonLogOutComponent],
   imports: [
     CommonModule,
     ComponenteRoutingModule,
@@ -59,8 +64,8 @@ import { LogUpLComponent } from './Formularios/log-up-l/log-up-l.component';
 
   ],
 
-  providers: [],
+  providers: [SesionService,TokService],
 
-  exports: [LogInLComponent,LogUpLComponent]
+  exports: [LogInLComponent,LogUpLComponent,BotonLogOutComponent]
 })
 export class ComponenteModule { }
