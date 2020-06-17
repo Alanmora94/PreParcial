@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-import { DBService} from './db.service';
 
 import { Establecimiento } from '../Modelos/establecimiento';
 
@@ -14,7 +13,7 @@ export class CookiesService {
 
   _establecimientoNombre : string ="";
 
-  constructor(private db : DBService) {
+  constructor() {
 
 
 

@@ -79,6 +79,8 @@ export class AltaVehiculoComponent implements OnInit {
      this.Limpiar();
     }
 
+    this.formulario.reset();
+    this.marca.reset();
 
   }
 

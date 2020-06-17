@@ -185,7 +185,7 @@ AltaVehiculo(obj: Vehiculo){
         //console.log("URL:" + urlImage);
         //this.savePost(post);
 
-        let auxi :Ivehiculo = {
+        const auxi :Ivehiculo = {
           marca: obj.marca,
           modelo: obj.modelo,
           anio: obj.anio,
@@ -239,8 +239,10 @@ GetCadena(){
 AltaCadena(obj: Ivehiculo){
 
 
-  let pad = this.cookies._establecimientoActual;
+  let pad = this.cookies.GetObjetcEstablecimiento();
 
+
+  console.log(pad);
 
   let auxi :Cadena = {
 

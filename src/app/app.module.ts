@@ -30,6 +30,7 @@ import { HttpClientModule } from "@angular/common/http";
 
 
 
+
 export function tokenGetter() {
   return localStorage.getItem("token");
 }
@@ -37,7 +38,8 @@ export function tokenGetter() {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
   ],
   imports: [
     BrowserModule,

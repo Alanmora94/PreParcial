@@ -20,7 +20,9 @@ export class EstablecimientoActualComponent implements OnInit {
 
   constructor(private cookies: CookiesService) {
 
-    this._establcimiento = this.cookies.GetEstablecimiento();
+    this._establcimiento = this.cookies.GetEstablecimiento()
+
+    ;
 
     console.log(this._establcimiento);
 

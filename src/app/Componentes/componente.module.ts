@@ -34,10 +34,28 @@ import {MatSelectModule} from '@angular/material/select';
 
 import {SesionService} from '../Servicios/sesion.service';
 import {TokService} from '../Servicios/tok.service';
-import { VehiculoComponent } from './Grillas/vehiculo/vehiculo.component';
 import { AltaVehiculoComponent } from './Formularios/alta-vehiculo/alta-vehiculo.component';
 import { SelectDeEstablecimientosComponent } from './Basicos/select-de-establecimientos/select-de-establecimientos.component';
 import { EstablecimientoActualComponent } from './Basicos/establecimiento-actual/establecimiento-actual.component';
+import { TodoComponent } from './Grillas/Vehiculo/todo/todo.component';
+import { ExportComponent } from './Grillas/Vehiculo/export/export.component';
+
+
+
+
+//*********************************SMART TABLE */
+
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { AnioComponent } from './Grillas/Vehiculo/Validadores/anio/anio.component';
+import { MarcaComponent } from './Grillas/Vehiculo/Validadores/marca/marca.component';
+import { ModeloComponent } from './Grillas/Vehiculo/Validadores/modelo/modelo.component';
+import { TipoComponent } from './Grillas/Vehiculo/Validadores/tipo/tipo.component';
+import { ImagenComponent } from './Grillas/Vehiculo/Validadores/imagen/imagen.component';
+import { KilometrosComponent } from './Grillas/Vehiculo/Validadores/kilometros/kilometros.component';
+import { DatoCargadoComponent } from './Grillas/dato-cargado/dato-cargado.component';
+import { ImgEditorComponent } from './Grillas/Vehiculo/Validadores/img-editor/img-editor.component';
+
+
 
 
 
@@ -45,7 +63,7 @@ import { EstablecimientoActualComponent } from './Basicos/establecimiento-actual
 
 @NgModule({
   declarations: [LogInLComponent, LogUpLComponent, BotonLogOutComponent,
-  EstablecimientoLComponent, VehiculoComponent, AltaVehiculoComponent, SelectDeEstablecimientosComponent, EstablecimientoActualComponent],
+  EstablecimientoLComponent, AltaVehiculoComponent, SelectDeEstablecimientosComponent, EstablecimientoActualComponent, TodoComponent, ExportComponent, AnioComponent, MarcaComponent, ModeloComponent, TipoComponent, ImagenComponent, KilometrosComponent, DatoCargadoComponent, ImgEditorComponent],
   imports: [
     CommonModule,
     ComponenteRoutingModule,
@@ -66,9 +84,11 @@ import { EstablecimientoActualComponent } from './Basicos/establecimiento-actual
     MatInputModule,
     MatCardModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
 
+    //*****SMART */
 
+    Ng2SmartTableModule
 
   ],
 
