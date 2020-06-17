@@ -23,6 +23,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 //**************JWT */
 import { JwtModule } from "@auth0/angular-jwt";
 import { HttpClientModule } from "@angular/common/http";
+//import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { AgmCoreModule } from '@agm/core';
+
 
 
 //import {LoginService} from './Servicios/sesion/login.service';
@@ -59,6 +62,14 @@ export function tokenGetter() {
 
 
     AppRoutingModule,
+
+
+    //MatGoogleMapsAutocompleteModule,
+
+
+    AgmCoreModule.forRoot(),
+
+
   ],
   providers: [],//LoginService,TokenService],
   bootstrap: [AppComponent]

@@ -29,6 +29,11 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
 
 
+import {CdkTableModule} from '@angular/cdk/table';
+import { MatTableExporterModule } from 'mat-table-exporter';
+
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 //**************SERVICIOS */
 
@@ -54,16 +59,36 @@ import { ImagenComponent } from './Grillas/Vehiculo/Validadores/imagen/imagen.co
 import { KilometrosComponent } from './Grillas/Vehiculo/Validadores/kilometros/kilometros.component';
 import { DatoCargadoComponent } from './Grillas/dato-cargado/dato-cargado.component';
 import { ImgEditorComponent } from './Grillas/Vehiculo/Validadores/img-editor/img-editor.component';
+import { CodigoQRComponent } from './Basicos/codigo-qr/codigo-qr.component';
 
 
 
 
+//*******************************CODIGO QR */
 
+import { QRCodeModule } from 'angularx-qrcode';
+import { MapaComponent } from './Basicos/Mapas/mapa/mapa.component';
+import { AutocompletarComponent } from './Basicos/Mapas/autocompletar/autocompletar.component';
+
+
+
+//*********************************MAPAS */
+
+
+//import {GoogleMapsModule} from '@angular/google-maps'
+
+//import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+//import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+
+//import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+//import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
-  declarations: [LogInLComponent, LogUpLComponent, BotonLogOutComponent,
-  EstablecimientoLComponent, AltaVehiculoComponent, SelectDeEstablecimientosComponent, EstablecimientoActualComponent, TodoComponent, ExportComponent, AnioComponent, MarcaComponent, ModeloComponent, TipoComponent, ImagenComponent, KilometrosComponent, DatoCargadoComponent, ImgEditorComponent],
+  declarations: [ExportComponent,LogInLComponent, LogUpLComponent, BotonLogOutComponent,
+  EstablecimientoLComponent, AltaVehiculoComponent, SelectDeEstablecimientosComponent, EstablecimientoActualComponent,
+   TodoComponent, ExportComponent, AnioComponent, MarcaComponent, ModeloComponent, TipoComponent, ImagenComponent,
+   KilometrosComponent, DatoCargadoComponent, ImgEditorComponent, CodigoQRComponent, MapaComponent, AutocompletarComponent],
   imports: [
     CommonModule,
     ComponenteRoutingModule,
@@ -85,15 +110,32 @@ import { ImgEditorComponent } from './Grillas/Vehiculo/Validadores/img-editor/im
     MatCardModule,
     MatSlideToggleModule,
     MatSelectModule,
+    CdkTableModule,
+    MatTableExporterModule,
+    MatPaginatorModule,
 
     //*****SMART */
 
-    Ng2SmartTableModule
+
+    Ng2SmartTableModule,
+
+
+    //*******CODIGO QR */
+
+    QRCodeModule,
+
+
+    //*********MAPAS */
+
+
+
+
 
   ],
 
   providers: [SesionService,TokService],
 
-  exports: [LogInLComponent,LogUpLComponent,BotonLogOutComponent,EstablecimientoLComponent,AltaVehiculoComponent,EstablecimientoActualComponent]
+  exports: [MapaComponent,CodigoQRComponent,ExportComponent,LogInLComponent, LogUpLComponent, BotonLogOutComponent,
+    EstablecimientoLComponent, AltaVehiculoComponent, SelectDeEstablecimientosComponent, EstablecimientoActualComponent, TodoComponent, AnioComponent, MarcaComponent, ModeloComponent, TipoComponent, ImagenComponent, KilometrosComponent, DatoCargadoComponent, ImgEditorComponent]
 })
 export class ComponenteModule { }

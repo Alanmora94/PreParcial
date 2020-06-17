@@ -2,6 +2,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 
 
+//**********************SERVICIOS */
+
+
+import {DBService} from '../../../../Servicios/db.service';
+
 //*************************COMPONENTES */
 
 
@@ -49,7 +54,15 @@ export class TodoComponent implements OnInit {
   @Output() PacienteEditado = new EventEmitter<any>();
 
 
-  constructor() { }
+  constructor(private base: DBService) {
+
+
+    this.base.GetCadena().subscribe(datos =>{
+      this._cadena = datos;
+
+    });
+
+  }
 
   ngOnInit(): void {
   }
@@ -79,13 +92,13 @@ export class TodoComponent implements OnInit {
       confirmDelete : true
     },
     edit: {
-      confirmSave: false
+      confirmSave: true
 
     },
 
     actions: {
       add: false,
-      edit: false
+      edit: true
     },
     columns: {
 
@@ -112,6 +125,7 @@ export class TodoComponent implements OnInit {
       tipo: {
         title: 'tipo',
         type: 'custom',
+        update: false,
         renderComponent: DatoCargadoComponent
       },
       imagen: {
