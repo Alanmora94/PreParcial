@@ -65,6 +65,8 @@ export class EstablecimientoLComponent implements OnInit {
 
 
      this.base.AltaEstablecimiento(this._establecimiento);
+
+     this.Limpiar();
     }
 
 
@@ -78,5 +80,38 @@ export class EstablecimientoLComponent implements OnInit {
   }
 
 
+  cargarDatos(){
+
+    this._razon = "consecionaria1";
+    this._email = "consecionaria1@yahoo.com";
+    this._pass = "Umbrella12";
+    this._direccion = "La rioja 1231";
+    this._telefono = 1644332634;
+
+  }
+
+
+Limpiar(){
+
+  this._razon = "";
+  this._email = "";
+  this._pass = "";
+  this._direccion = "";
+  this._telefono = null;
+
+  //this.formulario.clearValidators();
+  //this.formulario.clearAsyncValidators();
+
+}
+
+
+
+
+
+
+prueba(){
+
+  this.base.TraerUnEstablecimiento();
+}
 
 }

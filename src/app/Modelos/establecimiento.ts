@@ -1,5 +1,6 @@
 export class Establecimiento {
 
+  id?: string;
   razon?: string;
   email?: string;
   telefono?: number;

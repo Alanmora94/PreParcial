@@ -28,6 +28,8 @@ import { HttpClientModule } from "@angular/common/http";
 //import {LoginService} from './Servicios/sesion/login.service';
 //import {TokenService} from './Servicios/sesion/token.service';
 
+
+
 export function tokenGetter() {
   return localStorage.getItem("token");
 }

@@ -5,10 +5,24 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { IEstablecimiento } from '../Modelos/iestablecimiento';
 import { Establecimiento } from '../Modelos/establecimiento';
 
+//**********************VEHICULOS */
+import { Ivehiculo } from '../Modelos/ivehiculo';
+import { Vehiculo } from '../Modelos/vehiculo';
+
+
+
+//*********************CADENA */
+import {Cadena} from '../Modelos/cadena'
+
+
+import {CookiesService} from '../Servicios/cookies.service'
+
+
 import {Ifile} from '../Modelos/ifile';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 import { map, finalize } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { EstablecimientoComponent } from '../Pages/establecimiento/establecimiento.component';
 
 
 
@@ -28,9 +42,16 @@ export class DBService {
 
 //////////////// AUTOS
 
-  AutoCollection: AngularFirestoreCollection<IEstablecimiento>;
-  Auto: Observable<IEstablecimiento[]>;
-  AutoDoc: AngularFirestoreDocument<IEstablecimiento>;
+  AutoCollection: AngularFirestoreCollection<Ivehiculo>;
+  Auto: Observable<Ivehiculo[]>;
+  AutoDoc: AngularFirestoreDocument<Ivehiculo>;
+
+
+  //////////////// CADENA
+
+  CadenaCollection: AngularFirestoreCollection<Cadena>;
+  Cadena: Observable<Cadena[]>;
+  CadenaDoc: AngularFirestoreDocument<Cadena>;
 
 
   //******************VARIABLE PARA SUBIR IMAGEN */
@@ -38,17 +59,19 @@ export class DBService {
   private filepath: any;
   private downloadURL: Observable<string>
 
+  establecimientoString = '/preparcial/ZOwvS0XEdJNOrkM3KDcC/concesionaria';
+  vehiculosString = '/preparcial/ZOwvS0XEdJNOrkM3KDcC/autos';
+  cadenaString = '/preparcial/ZOwvS0XEdJNOrkM3KDcC/cadena';
 
 
 
 
 
+  constructor(private db: AngularFirestore, private storage: AngularFireStorage, private cookies: CookiesService) {
 
-
-  constructor(private db: AngularFirestore, private storage: AngularFireStorage) {
-
-    this.EstablecimientoCollection = this.db.collection('/preparcial/ZOwvS0XEdJNOrkM3KDcC/concesionaria');
-    //this.AutoCollection = this.db.collection('/preparcial/ZOwvS0XEdJNOrkM3KDcC/autos');
+    this.EstablecimientoCollection = this.db.collection(this.establecimientoString);
+    this.AutoCollection = this.db.collection(this.vehiculosString);
+    this.CadenaCollection = this.db.collection(this.cadenaString);
 
   }
 
@@ -77,6 +100,24 @@ GetEstablecimientos(){
   return this.Establecimiento;
 
 }
+
+
+TraerUnEstablecimiento(){
+
+
+  /*
+  let id = 'NtQBdKTQGxAorMgvRl7h';
+
+this.EstablecimientoDoc = this.db.doc(this.establecimientoString + '/' + id);
+
+console.log(this.EstablecimientoDoc.ref);
+*/
+
+
+}
+
+
+
 
 
 
@@ -108,11 +149,121 @@ AltaEstablecimiento(obj: Establecimiento){
 
 
 
+//*************************************************AUTOS */
+
+
+GetAutos(){
+
+  this.Auto = this.AutoCollection.snapshotChanges().pipe(map(actions => {
+    return actions.map(a => {
+      const data = a.payload.doc.data() as Ivehiculo;
+      data.id = a.payload.doc.id;
+       return data;
+    });
+  }));
+
+
+  return this.Auto;
+
+}
 
 
 
 
 
+
+AltaVehiculo(obj: Vehiculo){
+
+  this.filepath =  `images/${obj.imagen.name}`;
+  const fileRef = this.storage.ref(this.filepath);
+  const task = this.storage.upload(this.filepath, obj.imagen);
+  task.snapshotChanges()
+  .pipe(
+    finalize(() => {
+      fileRef.getDownloadURL().subscribe(urlImage => {
+        this.downloadURL = urlImage;
+        //console.log("URL:" + urlImage);
+        //this.savePost(post);
+
+        let auxi :Ivehiculo = {
+          marca: obj.marca,
+          modelo: obj.modelo,
+          anio: obj.anio,
+          kilometro: obj.kilometro,
+          tipo: obj.tipo,
+          imagen: this.downloadURL
+        }
+
+        //this.AutoCollection.add(auxi);
+        this.AltaCadena(auxi);
+
+
+
+      });
+    })
+  ).subscribe();
+
+
+}
+
+
+
+
+
+
+///////////////////////////////****CADENA */
+
+
+
+
+GetCadena(){
+
+  this.Cadena = this.CadenaCollection.snapshotChanges().pipe(map(actions => {
+    return actions.map(a => {
+      const data = a.payload.doc.data() as Cadena;
+      data.id = a.payload.doc.id;
+       return data;
+    });
+  }));
+
+
+  return this.Cadena;
+
+}
+
+
+
+
+
+
+AltaCadena(obj: Ivehiculo){
+
+
+  let pad = this.cookies._establecimientoActual;
+
+
+  let auxi :Cadena = {
+
+    idEstablecimiento: pad.id,
+    razon: pad.razon,
+    direccion: pad.direccion,
+    email: pad.email,
+    telefono: pad.telefono,
+    marca: obj.marca,
+    modelo: obj.modelo,
+    anio: obj.anio,
+    kilometro: obj.kilometro,
+    tipo: obj.tipo,
+    imagen: this.downloadURL
+
+
+
+  }
+
+  this.CadenaCollection.add(auxi);
+
+
+}
 
 
 

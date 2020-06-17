@@ -21,6 +21,8 @@
   </mat-form-field>
 
 
+  <app-select-de-establecimientos [Lista]="this._establecimientos" (Elegido)="recibir($event)" ></app-select-de-establecimientos>
+
 
   <ng-container *ngIf="formulario.valid; else elseTemplate">
     <button type="submit" mat-raised-button color="primary">Login</button>

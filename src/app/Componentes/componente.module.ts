@@ -34,13 +34,18 @@ import {MatSelectModule} from '@angular/material/select';
 
 import {SesionService} from '../Servicios/sesion.service';
 import {TokService} from '../Servicios/tok.service';
+import { VehiculoComponent } from './Grillas/vehiculo/vehiculo.component';
+import { AltaVehiculoComponent } from './Formularios/alta-vehiculo/alta-vehiculo.component';
+import { SelectDeEstablecimientosComponent } from './Basicos/select-de-establecimientos/select-de-establecimientos.component';
+import { EstablecimientoActualComponent } from './Basicos/establecimiento-actual/establecimiento-actual.component';
 
 
 
 
 
 @NgModule({
-  declarations: [LogInLComponent, LogUpLComponent, BotonLogOutComponent,EstablecimientoLComponent],
+  declarations: [LogInLComponent, LogUpLComponent, BotonLogOutComponent,
+  EstablecimientoLComponent, VehiculoComponent, AltaVehiculoComponent, SelectDeEstablecimientosComponent, EstablecimientoActualComponent],
   imports: [
     CommonModule,
     ComponenteRoutingModule,
@@ -69,6 +74,6 @@ import {TokService} from '../Servicios/tok.service';
 
   providers: [SesionService,TokService],
 
-  exports: [LogInLComponent,LogUpLComponent,BotonLogOutComponent,EstablecimientoLComponent]
+  exports: [LogInLComponent,LogUpLComponent,BotonLogOutComponent,EstablecimientoLComponent,AltaVehiculoComponent,EstablecimientoActualComponent]
 })
 export class ComponenteModule { }

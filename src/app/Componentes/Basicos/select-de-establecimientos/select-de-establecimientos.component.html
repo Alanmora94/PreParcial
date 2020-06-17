@@ -1,0 +1,14 @@
+
+
+
+
+
+<ng-container *ngIf="this._lista != null; else elseTemplate">
+  <button type="button" (click)="elegir(this._lista[0])" mat-raised-button color="primary">{{this._lista[0].razon}}</button>
+  <button type="button" (click)="elegir(this._lista[1])" mat-raised-button color="primary">{{this._lista[1].razon}}</button>
+  <button type="button" (click)="elegir(this._lista[2])" mat-raised-button color="primary">{{this._lista[2].razon}}</button>
+</ng-container>
+<ng-template #elseTemplate>
+  <button type="button" mat-raised-button color="primary" disabled>Login</button>
+</ng-template>
+
