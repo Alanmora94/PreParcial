@@ -64,27 +64,6 @@ _lista : Array<Cadena>;
 
 
 
-  GenerarCookieCadenaPorId(objeto: Array<Cadena>, idCadena: string){
-
-
-
-
-    for (let index = 0; index < objeto.length; index++) {
-      const element = objeto[index];
-
-
-      if (element.id == idCadena) {
-
-        localStorage.setItem("ObjetoElegido", JSON.stringify(element));
-        break;
-
-      }
-
-
-    }
-
-
-  }
 
 
 

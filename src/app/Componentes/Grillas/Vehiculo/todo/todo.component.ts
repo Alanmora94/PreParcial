@@ -13,6 +13,8 @@ import {DBService} from '../../../../Servicios/db.service';
 import {ImagenComponent} from '../Validadores/imagen/imagen.component';
 import {ImgEditorComponent} from '../Validadores/img-editor/img-editor.component';
 
+import {TipoComponent} from '../../tipo/tipo.component'
+
 import {DatoCargadoComponent} from '../../dato-cargado/dato-cargado.component'
 
 import {ModeloComponent} from '../Validadores/modelo/modelo.component'
@@ -135,7 +137,7 @@ export class TodoComponent implements OnInit {
         title: 'tipo',
         type: 'custom',
         update: false,
-        renderComponent: DatoCargadoComponent
+        renderComponent: TipoComponent
       }
       ,
       imagen: {

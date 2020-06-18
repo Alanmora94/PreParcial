@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+//***********PIPE */
+
+//import { ConvertirAImagenPipe } from '../Pipes/convertir-aimagen.pipe';
+
 //**********FORMULARIO */
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
@@ -86,6 +90,7 @@ import {GMapModule} from 'primeng/gmap';
 import { EstablecimientosButtonComponent } from './Basicos/Botones/establecimientos-button/establecimientos-button.component';
 import { DetAComponent } from './Detalle/det-a/det-a.component';
 import { BotonDetalleComponent } from './Grillas/Vehiculo/Validadores/boton-detalle/boton-detalle.component';
+import { imagenCon } from './Pipes/convertir-aimagen.pipe';
 
 
 
@@ -96,7 +101,8 @@ import { BotonDetalleComponent } from './Grillas/Vehiculo/Validadores/boton-deta
    KilometrosComponent, DatoCargadoComponent, ImgEditorComponent, CodigoQRComponent, MapaComponent, AutocompletarComponent,
    EstablecimientosButtonComponent,
    DetAComponent,
-   BotonDetalleComponent,],
+   BotonDetalleComponent,
+   imagenCon],
   imports: [
     CommonModule,
     ComponenteRoutingModule,
@@ -141,7 +147,7 @@ import { BotonDetalleComponent } from './Grillas/Vehiculo/Validadores/boton-deta
 
   ],
 
-  providers: [SesionService,TokService,SesionService,TokService,CookiesService,DBService,FiltrosService,GenerarListaService,GenerarObjDetalleService,],
+  providers: [SesionService,TokService,SesionService,TokService,CookiesService,DBService,FiltrosService,GenerarListaService,GenerarObjDetalleService],
 
   exports: [DetAComponent, MapaComponent,CodigoQRComponent,ExportComponent,LogInLComponent, LogUpLComponent, BotonLogOutComponent,
     EstablecimientoLComponent, AltaVehiculoComponent,  EstablecimientoActualComponent, TodoComponent,

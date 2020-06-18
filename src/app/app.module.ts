@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageModule } from './Pages/page.module';
@@ -32,7 +33,14 @@ import { AgmCoreModule } from '@agm/core';
 //import {TokenService} from './Servicios/sesion/token.service';
 
 
-
+import {SesionService} from './Servicios/sesion.service';
+import {TokService} from './Servicios/tok.service';
+import {CookiesService} from './Servicios/cookies.service';
+import {DBService} from './Servicios/db.service';
+import {FiltrosService} from './Servicios/filtros.service'
+import {GenerarListaService} from './Servicios/GrillaExport/generar-lista.service';
+import {GenerarObjDetalleService} from './Servicios/Detalle/generar-obj-detalle.service';
+//import { ConvertirAImagenPipe } from './Pipes/convertir-aimagen.pipe';
 
 
 
@@ -43,6 +51,7 @@ export function tokenGetter() {
 
 @NgModule({
   declarations: [
+
     AppComponent,
 
   ],
@@ -73,7 +82,7 @@ export function tokenGetter() {
 
 
   ],
-  providers: [],//LoginService,TokenService],
+  providers: [SesionService,TokService,SesionService,TokService,CookiesService,DBService,FiltrosService,GenerarListaService,GenerarObjDetalleService],//LoginService,TokenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

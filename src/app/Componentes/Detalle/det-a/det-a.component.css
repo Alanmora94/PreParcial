@@ -9,8 +9,10 @@
 
 img{
 
-  height: 600px;
-  width: auto;
+
+  width: 250px;
+  height: auto;
+
 }
 
 .logo{
@@ -47,4 +49,11 @@ img{
   border-right: 5px solid #e49d05;
   border-radius: 40px;
 
+}
+
+
+.src{
+
+  width: 400px;
+  height: auto;
 }

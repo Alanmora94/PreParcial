@@ -1,4 +1,5 @@
 import { Component, OnInit , Input} from '@angular/core';
+import { Router } from "@angular/router";
 
 //**************SERVICIOS */
 
@@ -6,7 +7,7 @@ import {DBService} from '../../../../../Servicios/db.service';
 
 import {CookiesService} from '../../../../../Servicios/cookies.service';
 
-import {GenerarObjDetalleService} from '../../../../../Servicios/Detalle/generar-obj-detalle.service';
+//import {CookiesService} from '../../../../../Servicios/cookies.service';
 
 //**************MODELOS */
 
@@ -25,7 +26,7 @@ export class BotonDetalleComponent implements OnInit {
   _lista: Array<Cadena>;
 
 
-  constructor(public cookies:CookiesService,  private detalle: GenerarObjDetalleService) {
+  constructor(public cookies:CookiesService, private base: DBService, private ruta: Router) {
 
 
   }
@@ -37,7 +38,17 @@ export class BotonDetalleComponent implements OnInit {
 
     console.log(this.value);
 
-    this._lista = this.cookies.ObtenerCadena();
+    this.base.GetCadena().subscribe(data=>{
+
+      this._lista =data;
+      this.cookies.GenerarCookieCadenaPorId(this._lista, this.value);
+      this.ruta.navigateByUrl('/Detalle');
+
+
+
+    })
+
+    //this._lista = this.cookies.ObtenerCadena();
 
     console.log(this._lista);
   //  this.detalle.GenerarCookieCadenaPorId(this._lista,this.value);

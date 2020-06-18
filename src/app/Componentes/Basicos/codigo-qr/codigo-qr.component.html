@@ -1,14 +1,7 @@
 
 
-<div *ngIf="this.cadena != null">
+<div *ngIf="this._string != null">
 
-<!--
-
-<qrcode [qrdata]="this._lista[0]" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
-
-<qrcode [qrdata]="this._lista[0]" [width]="256" [errorCorrectionLevel]="'M'" [elementType]="'svg'"></qrcode>
-
--->
-<qrcode [qrdata]="this.ConvertirAString()" [width]="256" [errorCorrectionLevel]="'M'" [elementType]="'svg'"></qrcode>
+<qrcode [qrdata]="this._string" [width]="256" [errorCorrectionLevel]="'M'" [elementType]="'svg'"></qrcode>
 
 </div>

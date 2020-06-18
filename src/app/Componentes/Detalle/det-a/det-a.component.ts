@@ -16,7 +16,12 @@ export class DetAComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+
+
   }
+
+_string: string;
 
 _objetoDetalle : Detalle;
 
@@ -40,6 +45,19 @@ _cabecera : Array<string>;
     this._cabecera = obj;
 
   }
+
+
+  EnviarQR(){
+
+
+    this._string = JSON.stringify(this._objetoDetalle);
+
+
+    return this._string;
+
+
+  }
+
 
 
 

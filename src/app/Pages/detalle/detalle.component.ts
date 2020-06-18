@@ -31,7 +31,7 @@ export class DetalleComponent implements OnInit {
 
   constructor(private cookies: CookiesService, private detalle: GenerarObjDetalleService) {
 
-    this._objetoDetalle = this.cookies.ObtenerObjetoDetalle();
+    this._objetoDetalle = this.cookies.ObtenerCadenaElegida();
 
     this._DetalleListo = this.detalle.GenerarObjDetalleConImg(this._objetoDetalle,'imagen','marca','modelo','Anio','tipo','kilometro')
 

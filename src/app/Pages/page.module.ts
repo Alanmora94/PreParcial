@@ -38,6 +38,7 @@ import { HomeComponent } from './home/home.component';
 import { EstablecimientoComponent } from './establecimiento/establecimiento.component';
 import { VehiculoComponent } from './vehiculo/vehiculo.component';
 import { DetalleComponent } from './detalle/detalle.component';
+import { GrillaAvanzadaComponent } from './grilla-avanzada/grilla-avanzada.component';
 
 
 
@@ -48,10 +49,10 @@ import { DetalleComponent } from './detalle/detalle.component';
 
 
 @NgModule({
-  declarations: [MenuComponent, LogUpComponent, LogInComponent, HomeComponent, EstablecimientoComponent, VehiculoComponent, DetalleComponent],
+  declarations: [MenuComponent, LogUpComponent, LogInComponent, HomeComponent, EstablecimientoComponent, VehiculoComponent, DetalleComponent, GrillaAvanzadaComponent],
   imports: [
     CommonModule,
-    PageRoutingModule,
+
     FormsModule,
     ReactiveFormsModule,
 
@@ -69,7 +70,8 @@ import { DetalleComponent } from './detalle/detalle.component';
     MatInputModule,
     MatCardModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    PageRoutingModule,
 
 
 

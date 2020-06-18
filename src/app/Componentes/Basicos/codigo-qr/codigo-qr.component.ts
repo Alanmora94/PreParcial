@@ -1,8 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input} from '@angular/core';
 
-import {Cadena} from '../../../Modelos/cadena'
-
-import {DBService} from '../../../Servicios/db.service';
 
 @Component({
   selector: 'app-codigo-qr',
@@ -11,25 +8,31 @@ import {DBService} from '../../../Servicios/db.service';
 })
 export class CodigoQRComponent implements OnInit {
 
-  cadena: Cadena;
-  _lista: Array<Cadena>=[];
+  //cadena: Cadena;
+  //_lista: Array<Cadena>=[];
+
+  _string: string;
+
+  @Input()
+  public set Codigo (obj : string){
 
 
-  constructor(private base: DBService) {
-
-
-    this.base.GetCadena().subscribe(datos=>{
-
-      this._lista=datos;
-
-      this.cadena = this._lista[0];
-    })
+    this._string = obj;
 
   }
 
 
 
-  ConvertirAString(){
+
+
+  constructor() {
+
+
+  }
+
+
+
+  /*ConvertirAString(){
 
     //let objeto: Cadena = this._lista[0];
 
@@ -37,7 +40,7 @@ export class CodigoQRComponent implements OnInit {
 
     return cadena;
   }
-
+*/
 
 
   ngOnInit(): void {
