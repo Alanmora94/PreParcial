@@ -236,6 +236,10 @@ GetCadena(){
 
 
 
+
+
+
+
 AltaCadena(obj: Ivehiculo){
 
 
@@ -266,6 +270,8 @@ AltaCadena(obj: Ivehiculo){
 
 
 }
+
+
 
 
 

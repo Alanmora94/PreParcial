@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input} from '@angular/core';
 
 import {DBService} from '../../../../Servicios/db.service';
 
-import {Cadena} from '../../../../Modelos/cadena'
+import {ExportI} from '../../../../Modelos/Grilla/export-i'
+
+
+
 
 
 //******************************************************************** */
@@ -14,27 +17,57 @@ import {Cadena} from '../../../../Modelos/cadena'
 })
 export class ExportComponent implements OnInit {
 
+  _listado:Array<ExportI>;
+  displayedColumns: string[] ;
 
-  displayedColumns: string[] = ['marca','modelo','tipo','razon'];
+  @Input()
+  public set Lista (obj : Array<ExportI>){
 
 
-  _listado:Array<Cadena>;
+    this._listado = obj;
+
+  }
 
 
-  constructor(private base : DBService) {
+  @Input()
+  public set Cabecera (obj : Array<string>){
 
-    this.base.GetCadena().subscribe(datos=>{
+
+    this.displayedColumns = obj;
+
+  }
+
+
+
+
+
+  //displayedColumns: string[] = ['marca','modelo','tipo','razon'];
+
+
+
+
+
+  constructor() {
+
+
+
+
+   /* this.base.GetCadena().subscribe(datos=>{
 
         this._listado = datos;
 
 
 
-    })
+    })*/
 
   }
 
 
   ngOnInit(): void {
+
+    console.log(this._listado);
+    console.log(this.displayedColumns);
+
   }
 
 

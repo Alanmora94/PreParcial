@@ -19,9 +19,16 @@ import {ModeloComponent} from '../Validadores/modelo/modelo.component'
 import {MarcaComponent} from '../Validadores/marca/marca.component'
 
 
+import {BotonDetalleComponent} from '../Validadores/boton-detalle/boton-detalle.component';
+
 //*******************CLASE */
 
-import {CadenaClass} from '../../../../Modelos/cadena-class'
+import {Cadena} from '../../../../Modelos/cadena'
+
+
+//*****************SERVICIOS */
+
+import {CookiesService} from '../../../../Servicios/cookies.service';
 
 
 @Component({
@@ -33,7 +40,7 @@ export class TodoComponent implements OnInit {
 
   //_pacienteEditado : Paciente;
 
-  _cadena: Array<CadenaClass>;
+  _cadena: Array<Cadena>;
 
   //result;
 
@@ -41,9 +48,11 @@ export class TodoComponent implements OnInit {
 
 
   @Input()
-  public set Paciente (obj : Array<CadenaClass>){
+  public set Paciente (obj : Array<Cadena>){
 
     this._cadena = obj;
+
+    this.cookies.GuardarListaCadena(this._cadena);
 
 
   }
@@ -54,7 +63,7 @@ export class TodoComponent implements OnInit {
   @Output() PacienteEditado = new EventEmitter<any>();
 
 
-  constructor(private base: DBService) {
+  constructor(private base: DBService, public cookies: CookiesService) {
 
 
     this.base.GetCadena().subscribe(datos =>{
@@ -127,7 +136,8 @@ export class TodoComponent implements OnInit {
         type: 'custom',
         update: false,
         renderComponent: DatoCargadoComponent
-      },
+      }
+      ,
       imagen: {
         title: 'Imagen',
         filter: false,
@@ -138,6 +148,13 @@ export class TodoComponent implements OnInit {
         },
         type: 'custom',
         renderComponent: ImagenComponent
+      },
+      id: {
+        title: 'Detalle',
+        type: 'custom',
+        filter: false,
+        //update: false,
+        renderComponent: BotonDetalleComponent
       }
     }
   };

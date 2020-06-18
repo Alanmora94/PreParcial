@@ -98,6 +98,7 @@ export class AltaVehiculoComponent implements OnInit {
     this._kilometro = 125443;
     this._marca = "WV";
     this._modelo = "GOLF";
+    //this._tipo = "Camion";
 
 
   }

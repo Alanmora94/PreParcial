@@ -1,7 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Usuario } from '../Modelos/usuario';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from "@angular/router";
+
+//***************MODELOS */
+
+import { Usuario } from '../Modelos/usuario';
+import { Establecimiento } from '../Modelos/establecimiento';
+
+//********************SERVICIOS */
+
+import {CookiesService} from '../Servicios/cookies.service';
+import {DBService} from '../Servicios/db.service';
 import {TokService} from './tok.service'
 
 
@@ -18,15 +27,26 @@ export class SesionService {
   sesion: boolean=false;
 
 
-  constructor(public auth: AngularFireAuth, private token: TokService, private ruta: Router) { }
+  constructor(
+
+    private base: DBService,
+    private cookies: CookiesService,
+    public auth: AngularFireAuth,
+    private token: TokService,
+    private ruta: Router)
+     { }
+
 
   objeto: any;
 
+
+/************************************** NUEVO USUARIO ********************************* */
+
   CargarUser(obj: Usuario){
 
-    console.log("entra");
-    console.log(obj.email);
-    console.log(obj.password);
+  //  console.log("entra");
+  //  console.log(obj.email);
+  //  console.log(obj.password);
 
     this.auth.createUserWithEmailAndPassword(obj.email,obj.password)
     .then(data => {
@@ -47,11 +67,11 @@ export class SesionService {
         }
         )
         .catch(e=>{
-          //console.log("error al conseguir el token");
+
         });
 
       }).catch(e=>{
-        //console.log("Error al actualizar el display" + e);
+
 
       });
 
@@ -59,19 +79,19 @@ export class SesionService {
 
     })
     .catch(e =>{
-      //console.log(e);
     })
 
   }
 
+/********************************************************************************************************* */
 
 
+/************************************** INICIAR SESION ********************************* */
+
+  IniciarSesion(obj: Usuario, establecimiento: Establecimiento){
 
 
-  IniciarSesion(obj: Usuario){
-
-
-    try {
+  try {
 
 
     this.auth.signInWithEmailAndPassword(obj.email,obj.password)
@@ -79,39 +99,27 @@ export class SesionService {
 
           this.UserName = data.user.displayName;
           this.GuardaruserName(this.UserName);
-
+          this.cookies.GuardarEstablecimiento(establecimiento);
 
       data.user.getIdToken().then(token=>{
-
-
-
           this.token.GuardarToken(token);
 
           if(this.token.ValidarToken()){
-            //this.notificacion.LogIn(this.GetUsername());
 
             this.sesion = true;
             this.ruta.navigateByUrl("Home");}
+        }).catch(e=>{
 
+                 });
 
-        }
-        )
-        .catch(e=>{
-          //console.log("error al conseguir el token");
-        });
+        }).catch(e=>{
+                       console.log("error de login");
 
-      }).catch(e=>{
-
-
-        console.log("error de login");
-        //this.notificacion.ErrorLogin();
-
-      });
+                 });
 
     } catch (error) {
 
       console.log("error de login2");
-        //console.log("error de login");
     }
 
 
@@ -143,12 +151,10 @@ LogOut(){
 
     this.ruta.navigateByUrl("LogIn");
 
-    //this.notificacion.LogOut(this.GetUsername());
-    //localStorage.removeItem("idDetalle")
 
   } catch (error) {
 
-    //console.log(error);
+
   }
 
 }

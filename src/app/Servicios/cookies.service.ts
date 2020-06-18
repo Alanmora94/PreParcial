@@ -4,10 +4,22 @@ import { Injectable } from '@angular/core';
 import { Establecimiento } from '../Modelos/establecimiento';
 
 
+//**********************MODELOS */
+
+import {Cadena} from '../Modelos/cadena';
+
+//*******************SERVICIOS */
+
+import	{DBService} from '../Servicios/db.service'
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class CookiesService {
+
+
+  public _listaCadena : Array<Cadena> = []
 
   public _establecimientoActual : Establecimiento;
 
@@ -15,12 +27,23 @@ export class CookiesService {
 
   constructor() {
 
-
-
-
   }
 
 
+//*******************************GUARDAR OBJETO CADENA COMO STORAGE */
+
+  GuardarListaCadena(obj: Array<Cadena>){
+
+    this._listaCadena = obj;
+  }
+
+  ObtenerCadena(){
+
+    return this._listaCadena;
+
+  }
+
+//************************************************************** */
 
 
 
@@ -71,6 +94,49 @@ GetObjetcEstablecimiento(){
     localStorage.setItem("Establecimiento", JSON.stringify(obj));
 
   }
+
+
+
+  BorrarCookies(){
+
+    localStorage.removeItem("EstablecimientoName");
+    localStorage.removeItem("Establecimiento");
+
+  }
+
+
+
+
+///*****************************************GENERAR OBJETO DETALLE */
+
+
+
+
+GenerarObjDetalle(obj: Cadena){
+
+  localStorage.setItem("Detalle", JSON.stringify(obj));
+
+}
+
+
+//*********************************************TRAER OBJETO DETALLE */
+
+
+ObtenerObjetoDetalle(){
+
+  return JSON.parse(localStorage.getItem("Detalle"));
+
+}
+
+
+
+GenerarObjDetallePorId(obj: string){
+
+  localStorage.setItem("Detalle", JSON.stringify(obj));
+
+}
+
+
 
 
 

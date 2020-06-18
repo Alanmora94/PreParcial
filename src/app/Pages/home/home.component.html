@@ -1,10 +1,26 @@
 
 
-<app-todo></app-todo>
 
-<app-export></app-export>
+
+    <ng-container *ngIf="this._listaFinal != null">
+
+      <app-export [Lista]="_listaFinal" [Cabecera]="_cabeceras"></app-export>
+
+    </ng-container>
+
+
+
+    <app-todo> </app-todo>
+
+
+
+
+<!--
 
 
 
 <app-codigo-qr></app-codigo-qr>
 
+
+<app-mapa></app-mapa>
+-->

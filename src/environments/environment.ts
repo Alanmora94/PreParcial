@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  mapboxKey: 'pk.eyJ1IjoiYWxhbm1vcmEyNyIsImEiOiJja2JqdGNtZTYwb3ZyMnRxcG5yejFvYnZzIn0.L_JWsJ_8uKw5PGKnSYuIRg',
   firebase: {
     apiKey: "AIzaSyAqxv6YfrpB6itaH5JxwArxwLzoQvQm7hs",
     authDomain: "practica20-5dba7.firebaseapp.com",
@@ -16,7 +17,22 @@ export const environment = {
   }
 };
 
+
+
+
 /*
+
+var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiYWxhbm1vcmEyNyIsImEiOiJja2JqdGNtZTYwb3ZyMnRxcG5yejFvYnZzIn0.L_JWsJ_8uKw5PGKnSYuIRg';
+var map = new mapboxgl.Map({
+  container: 'YOUR_CONTAINER_ELEMENT_ID',
+  style: 'mapbox://styles/mapbox/streets-v11'
+});
+
+
+
+
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
  *

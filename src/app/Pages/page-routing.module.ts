@@ -29,7 +29,8 @@ const routes: Routes = [
      {path: "Establecimiento",
      component: EstablecimientoComponent},
      {path: "Vehiculo",
-     component: VehiculoComponent},
+     component: VehiculoComponent,
+     canActivate: [AutenticacionGuard]},
 
      {path: "Home",
      component: HomeComponent,

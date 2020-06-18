@@ -11,6 +11,13 @@ import { LogUpLComponent } from './Formularios/log-up-l/log-up-l.component';
 import {EstablecimientoLComponent} from '../Componentes/Formularios/establecimiento-l/establecimiento-l.component'
 
 
+import { EstablecimientoActualComponent } from './Basicos/establecimiento-actual/establecimiento-actual.component';
+import { TodoComponent } from './Grillas/Vehiculo/todo/todo.component';
+import { ExportComponent } from './Grillas/Vehiculo/export/export.component';
+import { AltaVehiculoComponent } from './Formularios/alta-vehiculo/alta-vehiculo.component';
+
+
+
 import { ComponenteRoutingModule } from './componente-routing.module';
 
 
@@ -39,11 +46,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 
 import {SesionService} from '../Servicios/sesion.service';
 import {TokService} from '../Servicios/tok.service';
-import { AltaVehiculoComponent } from './Formularios/alta-vehiculo/alta-vehiculo.component';
-import { SelectDeEstablecimientosComponent } from './Basicos/select-de-establecimientos/select-de-establecimientos.component';
-import { EstablecimientoActualComponent } from './Basicos/establecimiento-actual/establecimiento-actual.component';
-import { TodoComponent } from './Grillas/Vehiculo/todo/todo.component';
-import { ExportComponent } from './Grillas/Vehiculo/export/export.component';
+import {CookiesService} from '../Servicios/cookies.service';
+import {DBService} from '../Servicios/db.service';
+import {FiltrosService} from '../Servicios/filtros.service'
+import {GenerarListaService} from '../Servicios/GrillaExport/generar-lista.service';
+import {GenerarObjDetalleService} from '../Servicios/Detalle/generar-obj-detalle.service';
 
 
 
@@ -75,20 +82,21 @@ import { AutocompletarComponent } from './Basicos/Mapas/autocompletar/autocomple
 //*********************************MAPAS */
 
 
-//import {GoogleMapsModule} from '@angular/google-maps'
+import {GMapModule} from 'primeng/gmap';
+import { EstablecimientosButtonComponent } from './Basicos/Botones/establecimientos-button/establecimientos-button.component';
+import { DetAComponent } from './Detalle/det-a/det-a.component';
+import { BotonDetalleComponent } from './Grillas/Vehiculo/Validadores/boton-detalle/boton-detalle.component';
 
-//import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
-//import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
-
-//import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
-//import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
   declarations: [ExportComponent,LogInLComponent, LogUpLComponent, BotonLogOutComponent,
-  EstablecimientoLComponent, AltaVehiculoComponent, SelectDeEstablecimientosComponent, EstablecimientoActualComponent,
+  EstablecimientoLComponent, AltaVehiculoComponent, EstablecimientoActualComponent,
    TodoComponent, ExportComponent, AnioComponent, MarcaComponent, ModeloComponent, TipoComponent, ImagenComponent,
-   KilometrosComponent, DatoCargadoComponent, ImgEditorComponent, CodigoQRComponent, MapaComponent, AutocompletarComponent],
+   KilometrosComponent, DatoCargadoComponent, ImgEditorComponent, CodigoQRComponent, MapaComponent, AutocompletarComponent,
+   EstablecimientosButtonComponent,
+   DetAComponent,
+   BotonDetalleComponent,],
   imports: [
     CommonModule,
     ComponenteRoutingModule,
@@ -128,14 +136,15 @@ import { AutocompletarComponent } from './Basicos/Mapas/autocompletar/autocomple
     //*********MAPAS */
 
 
-
+    GMapModule
 
 
   ],
 
-  providers: [SesionService,TokService],
+  providers: [SesionService,TokService,SesionService,TokService,CookiesService,DBService,FiltrosService,GenerarListaService,GenerarObjDetalleService,],
 
-  exports: [MapaComponent,CodigoQRComponent,ExportComponent,LogInLComponent, LogUpLComponent, BotonLogOutComponent,
-    EstablecimientoLComponent, AltaVehiculoComponent, SelectDeEstablecimientosComponent, EstablecimientoActualComponent, TodoComponent, AnioComponent, MarcaComponent, ModeloComponent, TipoComponent, ImagenComponent, KilometrosComponent, DatoCargadoComponent, ImgEditorComponent]
+  exports: [DetAComponent, MapaComponent,CodigoQRComponent,ExportComponent,LogInLComponent, LogUpLComponent, BotonLogOutComponent,
+    EstablecimientoLComponent, AltaVehiculoComponent,  EstablecimientoActualComponent, TodoComponent,
+     AnioComponent, MarcaComponent, ModeloComponent, TipoComponent, ImagenComponent, KilometrosComponent, DatoCargadoComponent, ImgEditorComponent]
 })
 export class ComponenteModule { }

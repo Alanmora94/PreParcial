@@ -1,0 +1,29 @@
+<div *ngIf="_objetoDetalle != null" class="Detalle">
+
+  <div class="row justify-content-md-center">
+    <div class="col-sm-4"><img [src]=" this._objetoDetalle.img" alt="" class="rounded"></div>
+    <div class="col-sm-5">
+
+      <div class="row justify-content-around">
+        <div class="col-6" class="cabeceraD">
+          <h1>DETALLE</h1>
+        </div>
+       </div>
+
+
+      <br>
+      <ul class="list-group">
+        <li class="list-group-item active">Info</li>
+
+
+        <li class="list-group-item"*ngFor="let obj of this._cabecera; index as i ">
+          <p><b>{{obj}}</b> {{this._objetoDetalle['i' + i]}}  </p>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+
+
+</div>

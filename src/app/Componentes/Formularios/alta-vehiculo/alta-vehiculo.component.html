@@ -33,14 +33,15 @@
 
 
   <mat-form-field>
-    <mat-label>Select an option</mat-label>
+    <mat-label>Eliga una opcion</mat-label>
     <mat-select [(value)]="_tipo" formControlName="tipo" required>
-      <mat-option>None</mat-option>
       <mat-option value="Auto">Auto</mat-option>
       <mat-option value="Camioneta">Camioneta</mat-option>
       <mat-option value="Camion">Camion</mat-option>
     </mat-select>
   </mat-form-field>
+
+  <hr>
 
   <div class="container-input-file">
     <label class="custom-file">
@@ -52,7 +53,7 @@
 
   </div>
 
-
+  <hr>
 
 
   <ng-container *ngIf="formulario.valid; else elseTemplate">

@@ -37,6 +37,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { HomeComponent } from './home/home.component';
 import { EstablecimientoComponent } from './establecimiento/establecimiento.component';
 import { VehiculoComponent } from './vehiculo/vehiculo.component';
+import { DetalleComponent } from './detalle/detalle.component';
 
 
 
@@ -47,7 +48,7 @@ import { VehiculoComponent } from './vehiculo/vehiculo.component';
 
 
 @NgModule({
-  declarations: [MenuComponent, LogUpComponent, LogInComponent, HomeComponent, EstablecimientoComponent, VehiculoComponent],
+  declarations: [MenuComponent, LogUpComponent, LogInComponent, HomeComponent, EstablecimientoComponent, VehiculoComponent, DetalleComponent],
   imports: [
     CommonModule,
     PageRoutingModule,
